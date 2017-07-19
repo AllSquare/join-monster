@@ -58,7 +58,15 @@ export function queryASTToSqlAST(resolveInfo, options, context) {
 export function populateASTNode(queryASTNode, parentTypeNode, sqlASTNode, namespace, depth, options, context) {
   // first, get the name of the field being queried
   const fieldName = queryASTNode.name.value
-
+  console.log('### populateASTNode ###')
+  console.log(queryASTNode)
+  console.log('###')
+  console.log(parentTypeNode)
+  console.log('###')
+  console.log(sqlASTNode)
+  console.log('###')
+  console.log(namespace)
+  console.log('###')
   // if this is an internal field (say, for introspection "__typename"), lets ignore it
   if (/^__/.test(fieldName)) {
     sqlASTNode.type = 'noop'
